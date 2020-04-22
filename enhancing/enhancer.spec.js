@@ -6,7 +6,7 @@ const { succeed, fail, repair } = enhancer;
 const box = {
   name: "Box",
   durability: 10,
-  enhancement: 12
+  enhancement: 13
 };
 
 const ball = {
@@ -17,16 +17,23 @@ const ball = {
 
 const kite = {
     name: "Kite",
-    durability: 50,
+    durability: 55,
     enhancement: 15
   };
 
 describe("succeed", () => {
   it("should increment enhancement if < 20", () => {
-    expect(succeed(box)).toHaveProperty("enhancement", 13);
+    expect(succeed(box)).toHaveProperty("enhancement", 14);
   });
 
+  it("enhancement should not change if >= 20", () => {
+      expect(succeed(ball)).toHaveProperty("enhancement", 20);
+  });
  
+  it("durability should not change", () => {
+      expect(succeed(ball)).toHaveProperty("durability", 10);
+  });
+
 });
 
 

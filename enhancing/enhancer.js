@@ -13,6 +13,7 @@ function succeed(item) {
 }
 
 function fail(item) {
+
   return { ...item };
 }
 
