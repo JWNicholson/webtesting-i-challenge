@@ -1,12 +1,12 @@
 const enhancer = require("./enhancer.js");
 // test away!
 
-const { succeed, fail, repair } = enhancer;
+const { succeed, fail, repair, get } = enhancer;
 
 const box = {
   name: "Box",
   durability: 10,
-  enhancement: 13
+  enhancement: 12
 };
 
 const ball = {
@@ -20,6 +20,12 @@ const kite = {
     durability: 55,
     enhancement: 15
   };
+
+  const stick = {
+      name: "Stick",
+      durability: 90,
+      enhancement: 0
+  }
 
 describe("succeed", () => {
   it("should increment enhancement if < 20", () => {
@@ -54,4 +60,15 @@ describe("repair", () => {
     expect(repair(kite)).toHaveProperty("durability", 100);
   });
 
+});
+
+describe("get", () => {
+    it("should return same name if enhancement === 0", () => {
+        expect(get(stick)).toHaveProperty("name", "Stick");
+    });
+
+    it("should return modified name if enhancement > 0", () => {
+        expect(get(box)).toHaveProperty("name", "12 + Box");
+      });
+   
 });
