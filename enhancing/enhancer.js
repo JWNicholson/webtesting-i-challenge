@@ -6,15 +6,17 @@ module.exports = {
 };
 
 function succeed(item) {
-  return { ...item };
+ 
+  return { ...item, enhancement };
 }
 
 function fail(item) {
-  return { ...item };
+
+  return { ...item, enhancement, durability };
 }
 
 function repair(item) {
-  return { ...item };
+  return { ...item, durability: 100 };
 }
 
 function get(item) {
