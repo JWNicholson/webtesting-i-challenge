@@ -37,6 +37,14 @@ describe("succeed", () => {
 });
 
 
+describe("fail", () => {
+    it("if enhancement < 15, decrease durability by 5 and decrease enhancement", () => {
+        expect(fail(kite)).toHaveProperty("durability", 45);
+        expect(fail(kite)).toHaveProperty("enhancement", 14);
+    });
+});
+
+
 describe("repair", () => {
   it("should return 100 for durability", () => {
     expect(repair(kite)).toHaveProperty("durability", 100);
